@@ -1,60 +1,97 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Coffre à 4 clés</title>
+  <meta charset="UTF-8" />
+  <title>Déverrouille le coffre</title>
   <style>
     body {
       font-family: Arial, sans-serif;
+      background: #f0f0f0;
       text-align: center;
-      padding: 20px;
-      background-color: #f0f0f0;
+      padding: 50px;
     }
-    .key-input {
-      width: 40px;
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 30px;
+    }
+
+    .code-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 50px;
+      height: 50px;
       font-size: 24px;
       text-align: center;
-      margin: 5px;
     }
-    #message {
-      margin-top: 20px;
-      font-weight: bold;
-    }
+
     button {
-      margin-top: 10px;
       padding: 10px 20px;
       font-size: 16px;
+      cursor: pointer;
+    }
+
+    .continue-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #2a9d8f;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .continue-btn:hover {
+      background-color: #21867a;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
     }
   </style>
 </head>
 <body>
-  <h2>Déverrouille le coffre</h2>
-  <div>
-    <input type="text" maxlength="1" class="key-input" id="key1">
-    <input type="text" maxlength="1" class="key-input" id="key2">
-    <input type="text" maxlength="1" class="key-input" id="key3">
-    <input type="text" maxlength="1" class="key-input" id="key4">
+
+  <h1>🔐 Déverrouille le coffre</h1>
+
+  <div class="code-container">
+    <input type="text" id="code1" maxlength="1">
+    <input type="text" id="code2" maxlength="1">
+    <input type="text" id="code3" maxlength="1">
+    <input type="text" id="code4" maxlength="1">
   </div>
-  <button onclick="checkCode()">Valider</button>
-  <div id="message"></div>
+
+  <button onclick="verifierCode()">Valider</button>
+
+  <div id="result"></div>
 
   <script>
-    function checkCode() {
-      const code = [
-        document.getElementById('key1').value,
-        document.getElementById('key2').value,
-        document.getElementById('key3').value,
-        document.getElementById('key4').value
-      ].join('');
+    function verifierCode() {
+      const c1 = document.getElementById("code1").value;
+      const c2 = document.getElementById("code2").value;
+      const c3 = document.getElementById("code3").value;
+      const c4 = document.getElementById("code4").value;
 
-      if (code === '3069') {
-        document.getElementById('message').textContent = '✅ Coffre déverrouillé !';
-        document.getElementById('message').style.color = 'green';
+      const code = c1 + c2 + c3 + c4;
+
+      if (code === "3069") {
+        document.getElementById("result").innerHTML = `
+          <p>🎉 Coffre ouvert ! Bravo.</p>
+          <a href="<a href="https://view.genial.ly/662fdd44e1234d001234abcd/presentation/escape-game#3" class="continue-btn">Continuer</a>
+" class="continue-btn">Continuer</a>
+        `;
       } else {
-        document.getElementById('message').textContent = '❌ Mauvaise combinaison.';
-        document.getElementById('message').style.color = 'red';
+        document.getElementById("result").innerHTML = `<p>❌ Mauvais code. Réessaie.</p>`;
       }
     }
   </script>
+
 </body>
 </html>
