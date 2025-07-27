@@ -83,8 +83,12 @@
 
       if (code === "3069") {
         document.getElementById("result").innerHTML = `
-          document.getElementById("result").innerHTML = `<p>🎉 Coffre ouvert ! Redirection en cours...</p>`;
-setTimeout(() => {
+          document.getElementById("result").innerHTML = `
+    <p>🎉 Coffre ouvert !</p>
+    <button id="boutonGenially" style="display: block; margin-top: 20px;">Continuer</button>
+  `;
+}
+
   window.location.href = "https://view.genial.ly/TON-ID-GENIALLY#2";
 }, 2000); // redirection après 1 seconde
         `;
