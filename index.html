@@ -36,24 +36,25 @@
       cursor: pointer;
     }
 
-    .continue-btn {
-      display: inline-block;
+    #result {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    #boutonGenially {
       margin-top: 20px;
       padding: 10px 20px;
       background-color: #2a9d8f;
       color: white;
-      text-decoration: none;
+      border: none;
+      font-size: 16px;
       font-weight: bold;
       border-radius: 5px;
+      cursor: pointer;
     }
 
-    .continue-btn:hover {
+    #boutonGenially:hover {
       background-color: #21867a;
-    }
-
-    #result {
-      margin-top: 20px;
-      font-size: 18px;
     }
   </style>
 </head>
@@ -84,7 +85,7 @@
       if (code === "3069") {
         document.getElementById("result").innerHTML = `
           <p>🎉 Coffre ouvert !</p>
-          <button id="boutonGenially" style="display: block; margin-top: 20px;">Continuer</button>
+          <button id="boutonGenially">Continuer</button>
         `;
       } else {
         document.getElementById("result").innerHTML = `<p>❌ Mauvais code. Réessaie.</p>`;
