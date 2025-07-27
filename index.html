@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Coffre à 4 clés</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+    .key-input {
+      width: 40px;
+      font-size: 24px;
+      text-align: center;
+      margin: 5px;
+    }
+    #message {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Déverrouille le coffre</h2>
+  <div>
+    <input type="text" maxlength="1" class="key-input" id="key1">
+    <input type="text" maxlength="1" class="key-input" id="key2">
+    <input type="text" maxlength="1" class="key-input" id="key3">
+    <input type="text" maxlength="1" class="key-input" id="key4">
+  </div>
+  <button onclick="checkCode()">Valider</button>
+  <div id="message"></div>
+
+  <script>
+    function checkCode() {
+      const code = [
+        document.getElementById('key1').value,
+        document.getElementById('key2').value,
+        document.getElementById('key3').value,
+        document.getElementById('key4').value
+      ].join('');
+
+      if (code === '3069') {
+        document.getElementById('message').textContent = '✅ Coffre déverrouillé !';
+        document.getElementById('message').style.color = 'green';
+      } else {
+        document.getElementById('message').textContent = '❌ Mauvaise combinaison.';
+        document.getElementById('message').style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>
