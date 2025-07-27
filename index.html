@@ -83,9 +83,10 @@
 
       if (code === "3069") {
         document.getElementById("result").innerHTML = `
-          <p>🎉 Coffre ouvert ! Bravo.</p>
-          <a href="<a href="https://view.genial.ly/662fdd44e1234d001234abcd/presentation/escape-game#3" class="continue-btn">Continuer</a>
-" class="continue-btn">Continuer</a>
+          document.getElementById("result").innerHTML = `<p>🎉 Coffre ouvert ! Redirection en cours...</p>`;
+setTimeout(() => {
+  window.location.href = "https://view.genial.ly/TON-ID-GENIALLY#2";
+}, 2000); // redirection après 1 seconde
         `;
       } else {
         document.getElementById("result").innerHTML = `<p>❌ Mauvais code. Réessaie.</p>`;
